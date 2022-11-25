@@ -19,7 +19,7 @@ function printGoals(data)
     //lägg in alla mål i HTML-koden med adjacentHTML
     for (let i = 0; i < data.length; i++) {
         goal = data[i].title;
-        goalCode = data[i].code;
+        
         let template = `<button>${goal}</button>`;
         main.insertAdjacentHTML(`beforeend`, template)
 
@@ -28,7 +28,7 @@ function printGoals(data)
     let buttons = document.querySelectorAll(`button`);
     buttons.forEach(btn => {
         btn.addEventListener(`click`, () =>{
-            if (btn.innerHTML === goal){} //den skriver bara ut 17
+            goalCode = data[4].code;
             goalInfo(goalCode)
         })
     });
@@ -36,7 +36,7 @@ function printGoals(data)
 
 async function goalInfo(goalCode)
 {
-    new_Url = `https://unstats.un.org/SDGAPI/v1/sdg/Goal/${goalCode}/List?includechildren=false`
+    new_Url = `https://unstats.un.org/SDGAPI/v1/sdg/Goal/${goalCode}/Target/List?includechildren=false`
     const resp = await fetch(new_Url)
     const newData = await resp.json();
     console.log(newData);
