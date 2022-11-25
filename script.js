@@ -1,5 +1,7 @@
 const BASE_URL = `https://unstats.un.org/SDGAPI/v1/sdg/Goal/List?includechildren=false`;
 let main = document.querySelector(`main`);
+let article = document.querySelector(`article`);
+let linkToPage = document.getElementById(`linkToPage`);
 let goalCode;
 let goal;
 
@@ -20,8 +22,7 @@ function printGoals(data)
     for (let i = 0; i < data.length; i++) {
         goal = data[i].title;
         
-        let template = `<button ID='${i}'>${goal}</button>
-        <p></p>`;
+        let template = `<button ID='${i}'>${goal}</button>`;
         main.insertAdjacentHTML(`beforeend`, template)
     }
 
@@ -71,11 +72,16 @@ async function goalInfoDisplay(goalCode)
     console.log(newData[0].description)
     goalInfoArray=newData[0].targets;
     console.log(goalInfoArray)
+    main.style.display=`none`;
     for (i=0;i<goalInfoArray.length;i++) //magic number!!! skapa ny array baserat på targets??
     {
         goalInformation = newData[0].targets[i].title;
         console.log(goalInformation)
+        let infoDisplay = `<p>${goalInformation}</p>
+        `;
+        article.insertAdjacentHTML(`beforeend`, infoDisplay)
     }
+    linkToPage.style.display="flex";
 }
 
 listGoals(BASE_URL);

@@ -3,7 +3,7 @@
 }
 
 body{
-    background: beige;
+    background: darkgreen;
 }
 
 main{
@@ -12,12 +12,13 @@ main{
     justify-content: center;
     flex-direction: column;
     margin: auto 5rem auto 5rem;
+    background-color: green;
 }
 
 button{
     padding: 1rem;
     font-size: 1rem;
-    background-color:burlywood;
+    background-color: lightgreen;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
@@ -25,4 +26,18 @@ button{
     max-width: 30rem;
     min-width: 10rem;
     margin: 1rem 1rem;
+}
+
+article{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 10rem auto 10rem;
+    flex-direction: column;
+}
+
+p{
+    padding: 3rem;
+    text-decoration: white;
+    color:white;
 }
